@@ -34,27 +34,51 @@ console.log("ERROR:",error);
 throw err
     }
 })()  */
-//*************************************************************************************************************** */
-import express from 'express';
-import connectDB from "./db/index.js";
+//********************************************************3******************************************************* */
 
-import dotenv from "dotenv"
-const app = express();
 
-dotenv.config({path:'./env'})
-connectDB()
-.then(()=>{
-    app.listen(5000, () => {
-    console.log('Server running on port 5000');
-    })
-})
-.catch((err)=>{
-    console.log("mongodb connection failed!!!",err);
+// import express from 'express';
+// import connectDB from "./db/index.js";
+
+// import dotenv from "dotenv"
+// const app = express();
+
+// dotenv.config({path:'./env'})
+// connectDB()
+// .then(()=>{
+//     app.listen(5000, () => {
+//     console.log('Server running on port 5000');
+//     })
+// })
+// .catch((err)=>{
+//     console.log("mongodb connection failed!!!",err);
     
-});
+// });
 
 
 
 // app.listen(5000, () => {
 //     console.log('Server running on port 5000');
 // });
+// **********************************************************4***********************************************************
+
+
+
+
+
+import connectDB from "./db/index.js";
+
+import dotenv from "dotenv"
+import {app} from "./app.js"
+
+dotenv.config({path:'./env'})
+connectDB()
+.then(()=>{
+    app.listen(process.env.PORT,8000, () => {
+    console.log(`Server running on port :${process.env.PORT}`);
+    })
+})
+.catch((err)=>{
+    console.log("mongodb connection failed!!!",err);
+    
+});
