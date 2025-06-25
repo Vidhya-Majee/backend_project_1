@@ -1,3 +1,3 @@
 # complete backend series
 
-This is a video series on backend with javascript
+This is a  series of backend with javascript.
